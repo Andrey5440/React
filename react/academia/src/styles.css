@@ -1,0 +1,53 @@
+#tabla {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #tabla th,
+  #tabla td {
+    border: 1px solid #1167a8;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  #tabla th {
+    background-color: #093a84;
+  }
+  
+  #tabla tr:hover {
+    background-color: #ab1515;
+  }
+
+#tbPrimary{
+    background-color: #4CAF50;
+}
+#tBody{
+    background-color: #4CAF50 !important;
+}
+
+#footer1 {
+    background-color: #058278;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+
+  }
+
+#footer1 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#textFooter{
+    color: #070707;
+    font-size: 17px;
+}
+
+
+#menu {
+    background-color: #058278 !important;
+  }
+  
