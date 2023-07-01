@@ -67,7 +67,7 @@ class CrearGrupo extends React.Component {
   render() {
     const { nombre, errores } = this.state;
     return (
-      <div className='form-control'>
+      <div className='form-control' >
         <form id="formulario" onSubmit={this.enviarDatos}>
           <div className="mb-3">
             <label htmlFor="nombre" className="form-label">Nombre</label>

@@ -110,7 +110,7 @@ class ListarCurso extends React.Component {
         const { datosCargados, datosCursos, modalOpen, nombre, descripcion, tiempo, id, usuario, modalDetalleOpen, detalleCurso } = this.state;
 
         return (
-            <div className="container">
+            <div className="container" id="containerListaCurso">
                 <Modal show={modalOpen}>
                     <Modal.Header>
                         <Modal.Title>Modal Editar</Modal.Title>
@@ -196,7 +196,7 @@ class ListarCurso extends React.Component {
                                         ||
                                         <a name="" id="btnEditar" className="btn btn-primary" onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
                                         ||
-                                        <a name="" id="btnDetalle" className="btn btn-secondary" onClick={() => this.openModalDetalle(datosExtraidos)} role="button">Detalle</a>
+                                        <a name="" id="btnDetalle" className="btn btn-info" onClick={() => this.openModalDetalle(datosExtraidos)} role="button">Detalle</a>
                                     </td>
                                 </tr>
                             ))}

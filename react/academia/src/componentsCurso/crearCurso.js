@@ -91,7 +91,7 @@ class CrearCurso extends React.Component {
   render() {
     const { nombre, descripcion, tiempo, errores } = this.state;
     return (
-      <div className='form-control'>
+      <div className='form-control' id='formCon'>
         <form id="formulario" onSubmit={this.enviarDatos}>
           <div className="mb-3">
             <label htmlFor="nombre" className="form-label">Nombre</label>

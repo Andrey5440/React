@@ -17,14 +17,14 @@ class MenuPrincipal extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Inicio</Nav.Link>
-                            <NavDropdown title="Cursos" id="basic-nav-dropdown">
+                            <NavDropdown title="Administrar Cursos" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/ListarCurso">Lista de cursos</NavDropdown.Item>
                                 <NavDropdown.Item href="/CrearCurso">
                                     Crear un curso
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
                             </NavDropdown>
-                            <NavDropdown title="Grupos" id="basic-nav-dropdown">
+                            <NavDropdown title="Administrar Grupos" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/ListarGrupo">Lista de grupos</NavDropdown.Item>
                                 <NavDropdown.Item href="/CrearGrupo">
                                     Crear un grupo
