@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles.css'
+import '../App.css'
+
 class CrearCurso extends React.Component {
   constructor(props) {
     super(props);
@@ -91,21 +92,21 @@ class CrearCurso extends React.Component {
   render() {
     const { nombre, descripcion, tiempo, errores } = this.state;
     return (
-      <div className='form-control' id='formCon'>
+      <div className='form-control' id='formCurso'>
         <form id="formulario" onSubmit={this.enviarDatos}>
           <div className="mb-3">
             <label htmlFor="nombre" className="form-label">Nombre</label>
-            <input type="text" className="form-control" name="nombre" id="nombre" placeholder="Ingresa el nombre del curso" onChange={this.cambioValor} value={nombre} />
+            <input type="text" className={`form-control ${errores.nombre ? 'is-invalid' : ''}`} name="nombre" id="nombre" placeholder="Ingresa el nombre del curso" onChange={this.cambioValor} value={nombre} />
             {errores.nombre && <small className="text-danger">{errores.nombre}</small>}
           </div>
           <div className="mb-3">
             <label htmlFor="descripcion" className="form-label">Descripcion</label>
-            <input type="text" className="form-control" name="descripcion" id="descripcion" placeholder="Ingresa la descripción del curso" onChange={this.cambioValor} value={descripcion} />
+            <input type="text" className={`form-control ${errores.descripcion ? 'is-invalid' : ''}`} name="descripcion" id="descripcion" placeholder="Ingresa la descripción del curso" onChange={this.cambioValor} value={descripcion} />
             {errores.descripcion && <small className="text-danger">{errores.descripcion}</small>}
           </div>
           <div className="mb-3">
             <label htmlFor="tiempo" className="form-label">Tiempo</label>
-            <input type="text" className="form-control" name="tiempo" id="tiempo" placeholder="Ingresa el tiempo del curso" onChange={this.cambioValor} value={tiempo} />
+            <input type="text" className={`form-control ${errores.tiempo ? 'is-invalid' : ''}`} name="tiempo" id="tiempo" placeholder="Ingresa el tiempo del curso" onChange={this.cambioValor} value={tiempo} />
             {errores.tiempo && <small className="text-danger">{errores.tiempo}</small>}
           </div>
           <div className="mb-3">

@@ -1,38 +1,344 @@
-.App {
-  text-align: center;
+/*Estilos para las tablas*/
+#tabla {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px;
+  overflow-x: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#tabla th {
+  background-color: rgba(37, 117, 252, 1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#tdTabla {
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+}
+#tdTablaAcciones{
+  white-space: nowrap;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+}
+@media (max-width: 767px) {
+  #containerListaCurso {
+    padding: 30px;
+  }
+
+  #h1Listar {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*Estilos para las botones de las tablas*/
+#botonAcciones {
+  align-items: center !important;
+  margin-bottom: 10px;
   color: white;
+  font-weight: bold;
+}
+/*Estilos para el footer*/
+#footer1 {
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)) !important;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+#footer1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Estilos para el menu*/
+#menu {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)) !important;
+}
+
+#basic-navbar-nav{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+#basic-navbar-dropdown{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.App-logo {
+  width: 100px;
+  height: 100px;
+  animation: App-logo-spin infinite 2s linear;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+/*Estilos para el contenedor del dashboard*/
+#containerDashboard {
+  min-height: 100vh;
+}
+
+#h1Listar{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+/*Estilos para las contenedor de listar curso*/
+#containerListaCurso {
+  background-image: url('img/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+/*Estilos para las contenedor de listar grupo*/
+#containerListaGrupo {
+  background-image: url('img/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh !important;
+}
+/*Estilos para las formularios*/
+#formulario {
+  background-color: rgba(37, 117, 252, 1);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#modalEditar{
+  background-color: rgba(37, 117, 252, 1);
+}
+
+#modalDetalle{
+  background-color: rgba(37, 117, 252, 1);
+}
+
+.form-label {
+  margin-bottom: 10px;
+}
+
+.form-control input {
+  width: 100%;
+}
+#formGrupo{
+  background-image: url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh !important;
+}
+
+#formCurso{
+  background-image: url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh !important;
+}
+
+.navbar-nav .dropdown-menu {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  position: static;
+  background-color: cornflowerblue;
+}
+
+/* Estilos nosotros*/
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+/* Estilos para el hero */
+#hero {
+  background-image: url('img/heroGalaxy.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  text-align: left;
+  padding: 50px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#hero h1 {
+  text-align: center;
+  font-size: 4rem;
+  color: #fff;
+}
+
+#hero p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  #hero {
+    padding: 30px;
+  }
+
+  #hero h1 {
+    font-size: 24px;
+  }
+
+  #hero p {
+    font-size: 16px;
+  }
+}
+
+/* Estilos para los servicios */
+#servicios {
+  padding: 50px;
+}
+
+#servicios h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+@media (max-width: 767px) {
+  #servicios {
+    padding: 30px;
+  }
+
+  #servicios h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .card-img-top {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .card-text {
+    font-size: 14px;
+  }
+}
+
+
+/* Estilos para la sección "Nosotros" */
+#nosotros {
+  padding: 50px;
+}
+
+#nosotros h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.lead {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  #nosotros {
+    padding: 30px;
+  }
+
+  #nosotros h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+#nosotros img {
+  height: 100%;
+  animation: App-logo-spin infinite 2s linear;
+}
+
+#wave {
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+

@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from "react";
+import '../App.css'
 class CrearGrupo extends React.Component {
   constructor(props) {
     super(props);
@@ -56,7 +56,7 @@ class CrearGrupo extends React.Component {
     let formularioValido = true;
 
     if (!nombre.trim()) {
-      errores.nombre = "El nombre es requerido";
+      errores.nombre = "El nombre del grupo es obligatorio";
       formularioValido = false;
     }
 
@@ -67,17 +67,37 @@ class CrearGrupo extends React.Component {
   render() {
     const { nombre, errores } = this.state;
     return (
-      <div className='form-control' >
+      <div className="form-control" id="formGrupo">
         <form id="formulario" onSubmit={this.enviarDatos}>
           <div className="mb-3">
-            <label htmlFor="nombre" className="form-label">Nombre</label>
-            <input type="text" className="form-control" name="nombre" id="nombre" placeholder="Ingresa el nombre del grupo" onChange={this.cambioValor} value={nombre} />
-            {errores.nombre && <small className="text-danger">{errores.nombre}</small>}
+            <label htmlFor="nombre" className="form-label">
+              Nombre
+            </label>
+            <input
+              type="text"
+              className={`form-control ${errores.nombre && 'is-invalid'}`}
+              name="nombre"
+              id="nombre"
+              placeholder="Ingresa el nombre del grupo"
+              onChange={this.cambioValor}
+              value={nombre}
+            />
+            {errores.nombre && (
+              <small className="text-danger">{errores.nombre}</small>
+            )}
           </div>
           <div className="mb-3">
-            <button type="reset" className="btn btn-danger" onClick={this.limpiarCampos}>Limpiar datos digitados</button>
+            <button
+              type="reset"
+              className="btn btn-danger"
+              onClick={this.limpiarCampos}
+            >
+              Limpiar datos digitados
+            </button>{" "}
             {'||'}
-            <button type="submit" className="btn btn-primary">Crear grupo</button>
+            <button type="submit" className="btn btn-primary">
+              Crear grupo
+            </button>
           </div>
         </form>
       </div>
@@ -86,4 +106,3 @@ class CrearGrupo extends React.Component {
 }
 
 export default CrearGrupo;
-

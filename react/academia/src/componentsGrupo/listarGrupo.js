@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import '../styles.css';
+import '../App.css'
 
 class ListarGrupo extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class ListarGrupo extends React.Component {
       id: "",
       modalDetalleOpen: false,
       detalleGrupo: null,
+      errors: {} // Estado para almacenar los errores de validación
     };
   }
 
@@ -56,24 +57,46 @@ class ListarGrupo extends React.Component {
     this.setState({ [name]: value });
   };
 
+  // Función para validar los campos antes de enviar los datos
+  validarCampos() {
+    const { nombre } = this.state;
+    let errors = {};
+
+    // Validación del campo nombre
+    if (!nombre.trim()) {
+      errors.nombre = "El nombre del grupo es obligatorio";
+    }
+
+    return errors;
+  }
+
   enviarDatos = (e) => {
     e.preventDefault();
     const { id, nombre } = this.state;
-    var datosenviar = {
-      id: id,
-      nombre: nombre,
-    };
-    console.log(datosenviar);
-    fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarGrupo.php", {
-      method: "POST",
-      body: JSON.stringify(datosenviar),
-    })
-      .then((respuesta) => respuesta.json())
-      .then((datosrepuesta) => {
-        window.location = "ListarGrupo";
-        console.log("Datos", datosrepuesta);
+
+    // Validación de campos
+    const errors = this.validarCampos();
+
+    if (Object.keys(errors).length === 0) {
+      var datosenviar = {
+        id: id,
+        nombre: nombre,
+      };
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarGrupo.php", {
+        method: "POST",
+        body: JSON.stringify(datosenviar),
       })
-      .catch(console.log);
+        .then((respuesta) => respuesta.json())
+        .then((datosrepuesta) => {
+          window.location = "ListarGrupo";
+          console.log("Datos", datosrepuesta);
+        })
+        .catch(console.log);
+    } else {
+      // Mostrar los errores de validación
+      this.setState({ errors });
+    }
   };
 
   openModal() {
@@ -105,15 +128,16 @@ class ListarGrupo extends React.Component {
       id,
       modalDetalleOpen,
       detalleGrupo,
+      errors
     } = this.state;
 
     return (
-      <div className="container" id="containerListaGrupo">
-        <Modal show={modalOpen}>
-          <Modal.Header>
-            <Modal.Title>Modal Editar</Modal.Title>
+      <div className="container-fluid" id="containerListaGrupo">
+        <Modal show={modalOpen} id='modalEditar'>
+          <Modal.Header id='modalEditar'>
+            <Modal.Title id='modalEditar'>Editar datos del grupo</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body id='modalEditar'>
             <form id="formulario" onSubmit={this.enviarDatos}>
               <div className="mb-3">
                 <input
@@ -128,7 +152,7 @@ class ListarGrupo extends React.Component {
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${errors.nombre && 'is-invalid'}`}
                   name="nombre"
                   id="nombre"
                   aria-describedby="helpId"
@@ -136,6 +160,9 @@ class ListarGrupo extends React.Component {
                   onChange={this.cambioValor}
                   value={nombre}
                 />
+                {errors.nombre && (
+                  <div className="invalid-feedback">{errors.nombre}</div>
+                )}
                 <small id="helpId" className="form-text text-muted">
                   Ingresa el nombre del grupo
                 </small>
@@ -149,20 +176,20 @@ class ListarGrupo extends React.Component {
                   Cerrar
                 </button>
                 ||
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-success">
                   Actualizar
                 </button>
               </div>
             </form>
           </Modal.Body>
-          <Modal.Footer></Modal.Footer>
+          <Modal.Footer id='modalEditar'></Modal.Footer>
         </Modal>
 
-        <Modal show={modalDetalleOpen}>
-          <Modal.Header>
+        <Modal show={modalDetalleOpen} id="modalDetalle">
+          <Modal.Header id="modalDetalle">
             <Modal.Title>Detalle de Grupo</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body id="modalDetalle">
             {detalleGrupo && (
               <div>
                 <p>ID: {detalleGrupo.id}</p>
@@ -170,7 +197,7 @@ class ListarGrupo extends React.Component {
               </div>
             )}
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer id="modalDetalle">
             <button
               type="button"
               className="btn btn-secondary"
@@ -181,8 +208,8 @@ class ListarGrupo extends React.Component {
           </Modal.Footer>
         </Modal>
 
-        <h1>Lista de grupos</h1>
-        <div className="table-responsive">
+        <h1 id="h1Listar">Lista de grupos</h1>
+        <div className="table-responsive" id="tabla">
           <table className="table table-primary">
             <thead>
               <tr>
@@ -194,24 +221,24 @@ class ListarGrupo extends React.Component {
             <tbody>
               {datosGrupos.map((datosExtraidos) => (
                 <tr key={datosExtraidos.id} className="table-primary">
-                  <td scope="row">{datosExtraidos.id}</td>
-                  <td>{datosExtraidos.nombre}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
+                  <td scope="row" id="tdTabla">{datosExtraidos.id}</td>
+                  <td id="tdTabla">{datosExtraidos.nombre}</td>
+                  <td id="tdTablaAcciones" style={{ whiteSpace: 'nowrap' }}>
+                    <button id="botonAcciones"
+                      className="btn btn-danger" 
                       onClick={() => this.eliminar(datosExtraidos.id)}
                     >
                       Borrar
                     </button>{" "}
                     ||
-                    <button
+                    <button id="botonAcciones"
                       className="btn btn-primary"
                       onClick={() => this.editar(datosExtraidos)}
                     >
                       Editar
                     </button>{" "}
                     ||
-                    <button
+                    <button id="botonAcciones"
                       className="btn btn-info"
                       onClick={() => this.openModalDetalle(datosExtraidos)}
                     >
